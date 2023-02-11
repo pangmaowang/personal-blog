@@ -1,120 +1,40 @@
 ---
-author: Sat Naing
-pubDatetime: 2022-09-23T15:22:00Z
-title: Adding new posts in AstroPaper theme
-postSlug: adding-new-posts-in-astropaper-theme
-featured: true
+author: Osito Wang
+pubDatetime: 2023-02-10T11:12:30.661Z
+title: Tour the latest trending framework solid.js, fresh and svelte
+postSlug: JavaScript framework tour
+featured: false
 draft: false
 tags:
-  - docs
+  - framework
 ogImage: ""
-description:
-  Some rules & recommendations for creating or adding new posts using AstroPaper
-  theme.
+description: A guide to choosing the right JavaScript framework for your web development project between Solid.js, Svelte, and Fresh. Compares benefits and features to make informed decisions based on project requirements.
 ---
 
-Here are some rules/recommendations, tips & ticks for creating new posts in AstroPaper blog theme.
+# Choosing the Right JavaScript Framework: Solid.js, Svelte, and Fresh in 2023
 
-## Table of contents
+As a software engineer, choosing the right JavaScript framework for your next project can be a daunting task. With a multitude of frameworks available, each offering its own set of features and benefits, it can be difficult to determine which one is best suited for your needs. In 2023, three frameworks that are expected to see significant growth and adoption are Solid.js, Svelte, and Fresh. In this blog post, we'll take a closer look at each of these frameworks and help you make an informed decision on which one is right for you.
 
-## Frontmatter
+## Solid.js
 
-Frontmatter is the main place to store some important information about the post (article). Frontmatter lies at the top of the article and is written in YAML format. Read more about frontmatter and its usage in [astro documentation](https://docs.astro.build/en/guides/markdown-content/).
+Solid.js is a JavaScript framework that's designed for building complex and scalable web applications. This framework is feature-rich and highly customizable, making it a popular choice among developers. One of the standout features of Solid.js is its ability to handle large amounts of data with ease, making it ideal for building data-intensive web applications. Additionally, Solid.js has a strong community of developers, which means that you can find support and resources for your project with ease.
 
-Here is the list of frontmatter property for each post.
+## Svelte
 
-| Property          | Description                                                                     | Remark                                        |
-| ----------------- | ------------------------------------------------------------------------------- | --------------------------------------------- |
-| **_title_**       | Title of the post. (h1)                                                         | required<sup>\*</sup>                         |
-| **_description_** | Description of the post. Used in post excerpt and site description of the post. | required<sup>\*</sup>                         |
-| **_pubDatetime_** | Published datetime in ISO 8601 format.                                          | required<sup>\*</sup>                         |
-| **_author_**      | Author of the post.                                                             | default = SITE.author                         |
-| **_postSlug_**    | Slug for the post. Will automatically be slugified.                             | default = slugified title                     |
-| **_featured_**    | Whether or not display this post in featured section of home page               | default = false                               |
-| **_draft_**       | Mark this post 'unpublished'.                                                   | default = false                               |
-| **_tags_**        | Related keywords for this post. Written in array yaml format.                   | default = others                              |
-| **_ogImage_**     | OG image of the post. Useful for social media sharing and SEO.                  | default = SITE.ogImage or generated SVG image |
+Svelte is a JavaScript framework that's designed for building fast and lightweight web applications. This framework is highly efficient, as it compiles your code to vanilla JavaScript, resulting in faster performance and smaller file sizes. Svelte is also known for its simplicity and ease of use, making it a popular choice among developers who are new to the world of web development. Additionally, Svelte has a rapidly growing community of developers, which means that you can find support and resources for your project with ease.
 
-Only `title`, `description` and `pubDatetime` fields in frontmatter must be specified.
+## Fresh
 
-Title and description (excerpt) are important for search engine optimization (SEO) and thus AstroPaper encourages to include these in blog posts.
+Fresh is a JavaScript framework that's designed for building modern and interactive web applications. This framework is known for its cutting-edge features and tools, making it a popular choice among developers who are looking to build cutting-edge web applications. Fresh has a strong emphasis on user experience, making it ideal for building applications that require a high degree of interactivity and user engagement. Additionally, Fresh has a strong community of developers, which means that you can find support and resources for your project with ease.
 
-`slug` is the unique identifier of the url. Thus, `slug` must be unique and different from other posts. The whitespace of `slug` needs to be separated with `-` or `_` but `-` is recommended. However, even if you don't write the correct slug, AstroPaper will automatically slugify your incorrect slug. If slug is not specified, the slugified title of the post will be used as slug.
+## Choosing the Right Framework
 
-If you omit `tags` in a blog post (in other words, if no tag is specified), the default tag `others` will be used as a tag for that post. You can set the default tag in the `/src/content/_schemas.ts` file.
+When choosing between Solid.js, Svelte, and Fresh, it's important to consider your specific needs and requirements. If you're building a complex and data-intensive web application, then Solid.js is likely the best choice for you. On the other hand, if you're building a fast and lightweight web application, then Svelte is likely the best choice. And if you're building a modern and interactive web application, then Fresh is likely the best choice.
 
-```ts
-// src/contents/_schemas.ts
-export const blogSchema = z.object({
-  // ---
-  // replace "others" with whatever you want
-  tags: z.array(z.string()).default(["others"]),
-  ogImage: z.string().optional(),
-  description: z.string(),
-});
-```
+In addition to considering your specific needs and requirements, it's also important to consider the size and scope of your project. If you're building a small or medium-sized project, then Svelte is likely the best choice, as it's lightweight and easy to use. On the other hand, if you're building a large and complex project, then Solid.js or Fresh is likely the best choice, as they're both feature-rich and highly customizable.
 
-### Sample Frontmatter
+Ultimately, the choice between Solid.js, Svelte, and Fresh will come down to your specific needs and requirements. By considering the size and scope of your project, as well as your specific needs and requirements, you'll be able to make an informed decision and choose the framework that's right for you.
 
-Here is the sample frontmatter for a post.
+## Conclusion
 
-```yaml
-# src/contents/sample-post.md
----
-title: The title of the post
-author: your name
-pubDatetime: 2022-09-21T05:17:19Z
-postSlug: the-title-of-the-post
-featured: true
-draft: false
-tags:
-  - some
-  - example
-  - tags
-ogImage: ""
-description: This is the example description of the example post.
----
-```
-
-## Adding table of contents
-
-By default, a post (article) does not include any table of contents (toc). To include toc, you have to specify it in a specific way.
-
-Write `Table of contents` in h2 format (## in markdown) and place it where you want it to be appeared on the post.
-
-For instance, if you want to place your table of contents just under the intro paragraph (like I usually do), you can do that in the following way.
-
-```md
----
-# some frontmatter
----
-
-Here are some recommendations, tips & ticks for creating new posts in AstroPaper blog theme.
-
-## Table of contents
-
-<!-- the rest of the post -->
-```
-
-## Headings
-
-There's one thing to note about headings. The AstroPaper blog posts use title (title in the frontmatter) as the main heading of the post. Therefore, the rest of the heading in the post should be using h2 \~ h6.
-
-This rule is not mandatory, but highly recommended for visual, accessibility and SEO purposes.
-
-## Bonus
-
-### Image compression
-
-When you put images in the blog post, it is recommended that the image is compressed. This will affect the overall performance of the website.
-
-My recommendation for image compression sites.
-
-- [TinyPng](https://tinypng.com/)
-- [TinyJPG](https://tinyjpg.com/)
-
-### OG Image
-
-The default OG image will be placed if a post does not specify the OG image. Though not required, OG image related to the post should be specify in the frontmatter. The recommended size for OG image is **_1200 X 640_** px.
-
-> Since AstroPaper v1.4.0, OG images will be generated automatically if not specified. Check out [the announcement](https://astro-paper.pages.dev/posts/dynamic-og-image-generation-in-astropaper-blog-posts/).
+In 2023, the world of JavaScript frameworks is expected to continue its rapid growth and evolution, with new frameworks and trends emerging all the time. By choosing the right framework for your project, you'll be able to build
