@@ -20,12 +20,10 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const socialImageURL = new URL(
-  ogImage ? ogImage : SITE.ogImage,
-  Astro.url.origin
-).href;
+const socialImageURL = new URL(ogImage ? ogImage : SITE.ogImage, Astro.site)
+  .href;
 
-const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
+const fallbackImageURL = new URL(SITE.ogImage, Astro.site).href;
 ---
 
 <!DOCTYPE html>

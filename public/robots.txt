@@ -1,5 +1,4 @@
-User-agent: Googlebot
-Disallow: /nogooglebot/
-
 User-agent: *
 Allow: /
+
+Sitemap: https://hibernation.dev/sitemap-index.xml

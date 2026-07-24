@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://maomao6551675.github.io/",
+  site: "https://hibernation.dev/",
   integrations: [
     tailwind({
       config: {
